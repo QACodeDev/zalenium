@@ -25,10 +25,14 @@ $ helm install --name my-release local/zalenium
 
 ## Install from this GitHub repo:
 
-A sample installation steps would look like this:
+A sample installation steps would look like this with default ServiceType='NodePort':
 ```
-helm repo add zalenium-github https://raw.githubusercontent.com/zalando/zalenium/master/charts/zalenium
-helm install --name my-release --namespace my-zalenium zalenium-github/zalenium
+helm repo add zalenium-chart https://raw.githubusercontent.com/QACodeDev/zalenium/master/charts/zalenium
+helm install --name my-release --namespace my-zalenium zalenium-chart/zalenium
+```
+To deploy with SeriveType="LoadBalancer" :
+```
+helm install my-release --namespace my-zalenium zalenium-chart/zalenium --set hub.serviceType="LoadBalancer"
 ```
 Where:
 * `zalenium-github` is the name of this repo (you may call it whatever you want);
